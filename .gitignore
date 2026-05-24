@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Local data and outputs
+data/
+outputs/
+*.log
+*.err.log
+*.pid
+
+# Large artifacts
+*.npz
+*.npy
+*.pt
+*.pth
+*.ckpt
+*.zip
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
