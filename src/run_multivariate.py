@@ -1,10 +1,4 @@
-"""Multivariate TSAD benchmark runner for RT-FM.
-
-The runner preserves the channel-by-time window structure, trains one VAE per
-dataset/seed cache entry, and then evaluates multiple Flow Matching weighting
-variants. It supports the multivariate benchmark formats used in the paper:
-GECCO/SWAN NumPy arrays, Anomaly Transformer-style MSL/SMAP/SMD arrays, and
-PSM CSV files.
+"""Multivariate TSAD benchmark runner for RT-FM
 """
 
 import argparse
