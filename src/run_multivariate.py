@@ -3,8 +3,8 @@
 The runner preserves the channel-by-time window structure, trains one VAE per
 dataset/seed cache entry, and then evaluates multiple Flow Matching weighting
 variants. It supports the multivariate benchmark formats used in the paper:
-GECCO/SWAN from DCdetector-style files, Anomaly Transformer-style MSL/SMAP/SMD,
-and PSM CSV files.
+GECCO/SWAN NumPy arrays, Anomaly Transformer-style MSL/SMAP/SMD arrays, and
+PSM CSV files.
 """
 
 import argparse
@@ -33,7 +33,7 @@ except Exception:
 
 
 ROOT = Path("data/multivariate/anomaly_transformer_benchmarks")
-DC_ROOT = Path("data/DCdetector_dataset")
+DC_ROOT = Path("data/multivariate")
 NASA_ROOT = Path("data/multivariate/msl")
 if not NASA_ROOT.exists():
     NASA_ROOT = Path("data/multivariate/MSL")
@@ -44,8 +44,8 @@ DATASETS = {
     "SMAP": {"kind": "npy", "train": ROOT / "SMAP/SMAP/SMAP_train.npy", "test": ROOT / "SMAP/SMAP/SMAP_test.npy", "label": ROOT / "SMAP/SMAP/SMAP_test_label.npy"},
     "SMD": {"kind": "npy", "train": ROOT / "SMD/SMD/SMD_train.npy", "test": ROOT / "SMD/SMD/SMD_test.npy", "label": ROOT / "SMD/SMD/SMD_test_label.npy"},
     "PSM": {"kind": "csv", "train": ROOT / "PSM/PSM/train.csv", "test": ROOT / "PSM/PSM/test.csv", "label": ROOT / "PSM/PSM/test_label.csv"},
-    "DC_GECCO": {"kind": "npy", "train": DC_ROOT / "NIPS_TS_GECCO/NIPS_TS_Water_train.npy", "test": DC_ROOT / "NIPS_TS_GECCO/NIPS_TS_Water_test.npy", "label": DC_ROOT / "NIPS_TS_GECCO/NIPS_TS_Water_test_label.npy"},
-    "DC_SWAN": {"kind": "npy", "train": DC_ROOT / "NIPS_TS_Swan/NIPS_TS_Swan_train.npy", "test": DC_ROOT / "NIPS_TS_Swan/NIPS_TS_Swan_test.npy", "label": DC_ROOT / "NIPS_TS_Swan/NIPS_TS_Swan_test_label.npy"},
+    "DC_GECCO": {"kind": "npy", "train": DC_ROOT / "GECCO/NIPS_TS_Water_train.npy", "test": DC_ROOT / "GECCO/NIPS_TS_Water_test.npy", "label": DC_ROOT / "GECCO/NIPS_TS_Water_test_label.npy"},
+    "DC_SWAN": {"kind": "npy", "train": DC_ROOT / "SWAN/NIPS_TS_Swan_train.npy", "test": DC_ROOT / "SWAN/NIPS_TS_Swan_test.npy", "label": DC_ROOT / "SWAN/NIPS_TS_Swan_test_label.npy"},
     "DC_CREDITCARD": {"kind": "npy", "train": DC_ROOT / "NIPS_TS_Creditcard/NIPS_TS_creditcard_train.npy", "test": DC_ROOT / "NIPS_TS_Creditcard/NIPS_TS_creditcard_test.npy", "label": DC_ROOT / "NIPS_TS_Creditcard/NIPS_TS_creditcard_test_label.npy"},
     "DC_SWAT": {"kind": "dc_swat", "train": DC_ROOT / "SWAT/swat_train2.csv", "test": DC_ROOT / "SWAT/swat2.csv"},
     "MSL_CHANNEL": {"kind": "nasa_channel", "root": NASA_ROOT, "spacecraft": "MSL"},

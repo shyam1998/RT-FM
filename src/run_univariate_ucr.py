@@ -771,6 +771,7 @@ def main():
     print(f"selected datasets: {len(datasets)}", flush=True)
     print(f"selected seeds: {args.seeds}", flush=True)
     out = Path(args.out)
+    out.parent.mkdir(parents=True, exist_ok=True)
     existing = pd.read_csv(out) if out.exists() else pd.DataFrame()
     completed = set(zip(existing.get("dataset", []), existing.get("seed", []))) if len(existing) else set()
     all_rows = existing.to_dict("records") if len(existing) else []

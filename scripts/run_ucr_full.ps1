@@ -1,4 +1,6 @@
-$Out = "outputs\ucr_full_results.csv"
+$OutDir = "outputs\ucr_full"
+New-Item -ItemType Directory -Force $OutDir | Out-Null
+$Out = Join-Path $OutDir "ucr_results.csv"
 
 python src\run_univariate_ucr.py `
   --data-dir "data\UCR_Anomaly_FullData" `

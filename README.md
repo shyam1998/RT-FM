@@ -46,7 +46,7 @@ data/
     FilesAreInHere/
       UCR_Anomaly_FullData/
         *.txt
-  dcdetector/
+  multivariate/
     GECCO/
     SWAN/
     PSM/
@@ -57,7 +57,7 @@ data/
 
 The UCR runner expects standard UCR anomaly filenames containing the train split
 and anomaly interval metadata. The multivariate runner expects train/test arrays
-and labels in the DCdetector-style folders used by the benchmark scripts.
+and labels in the multivariate benchmark folders used by the scripts.
 
 ## Full Runs
 
@@ -79,7 +79,7 @@ Run the clean multivariate benchmark:
 The scripts are thin wrappers around:
 
 ```powershell
-python src\run_univariate_ucr.py --output-dir outputs\ucr_full
+python src\run_univariate_ucr.py --out outputs\ucr_full\ucr_results.csv
 ```
 
 ```powershell
@@ -92,7 +92,11 @@ python src\run_multivariate.py `
 
 ## Outputs
 
-The univariate runner writes one CSV row per dataset, seed, and model.
+The univariate runner writes one CSV row per dataset, seed, and model:
+
+```text
+outputs/ucr_full/ucr_results.csv
+```
 
 The multivariate runner writes:
 
