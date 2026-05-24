@@ -102,7 +102,7 @@ outputs/<run_name>/<dataset>_<model>_seed<seed>/artifacts.npz
 ```
 
 The saved artifacts include timestamp/window scores, labels, rare-normal masks,
-and reconstruction diagnostics used for the mechanism figure.
+and reconstruction diagnostics.
 
 ## Metrics
 
