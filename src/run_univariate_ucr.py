@@ -137,8 +137,6 @@ def timestep_embedding(timesteps, dim, max_period=10000):
 class FMResidualBlock(nn.Module):
     def __init__(self, channels, num_groups=8):
         super().__init__()
-        # Match architecture_tuning_detection_demo.ipynb: keep GroupNorm in
-        # the VAE, but use the older plain residual block in the FM vector field.
         self.block = nn.Sequential(
             nn.Conv1d(channels, channels, kernel_size=3, padding="same"),
             nn.SiLU(),
