@@ -2,11 +2,6 @@
 
 Anonymous code release for reproducing the final experiments.
 
-RT-FM is a tail-aware training strategy for time-series anomaly detection. The
-code trains a temporal VAE on nominal windows, removes amplitude-explainable
-latent tail variation, and uses the residual tail score to softly reweight the
-Flow Matching objective.
-
 ## Layout
 
 ```text
